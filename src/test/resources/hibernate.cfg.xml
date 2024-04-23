@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!-- 네이티브 하이버네이트를 구성하려면 hibernate.properties 자바 프로퍼티 파일이나 hibernate.cfg.xml 파일을 사용하면 됩니다. -->
+<hibernate-configuration>
+    <!--
+        SessionFactory 객체를 구성하고 있습니다. SessionFactory는 인터페이스며,
+        하나의 데이터베이스와 상호작요하려면 하나의 SessionFactory가 필요합니다.
+    -->
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/ch02?serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+        <property name="hibernate.connection.pool_size">50</property>
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+    </session-factory>
+</hibernate-configuration>

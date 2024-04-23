@@ -45,7 +45,7 @@ class HelloWorldJPATest {
             //시작합니다. 이제부터 발생 가능한 어떠한 오류도 이전에 커밋된 트랜잭션에는 영향을 미치지 않습니다.
             em.getTransaction().begin();
 
-            //쿼리를 실행해 DB의 모든 Message 인스턴스를 조회합니다.
+            //쿼리를 실행해 DB의 모든 Message 인스턴스를 조회합니다. (JPQL 사용)
             List<Message> messages = em.createQuery("select m from Message m", Message.class).getResultList();
 
             //프로퍼티의 값을 변경할수 있습니다, 로드된 Message가 앞서 로드됐던 영속성 컨텍스트에
