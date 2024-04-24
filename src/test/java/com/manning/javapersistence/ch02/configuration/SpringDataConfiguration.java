@@ -1,15 +1,17 @@
 package com.manning.javapersistence.ch02.configuration;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 
-import jakarta.persistence.EntityManagerFactory;
+import javax.persistence.EntityManagerFactory;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+
 
 import javax.sql.DataSource;
 import java.util.Properties;
@@ -22,7 +24,7 @@ public class SpringDataConfiguration {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.ch.jdbc.Driver");
+        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUrl("jdbc:mysql://localhost:3306/ch02?serverTimezone=UTC");
         dataSource.setUsername("root");
         dataSource.setPassword("");
@@ -50,7 +52,6 @@ public class SpringDataConfiguration {
     }
 
 
-
     @Bean
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 
@@ -69,7 +70,7 @@ public class SpringDataConfiguration {
         localContainerEntityManagerFactoryBean.setJpaVendorAdapter(jpaVendorAdapter());
 
         //앤티티 클래스를 스캔할 패키지를 설정
-        localContainerEntityManagerFactoryBean.setPackagesToScan("com.manning.javapersistence.cho2");
+        localContainerEntityManagerFactoryBean.setPackagesToScan("com.manning.javapersistence.ch02");
         return localContainerEntityManagerFactoryBean;
     }
 }
