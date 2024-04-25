@@ -1,0 +1,26 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+                                http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+    <!-- persistence.xml 파일은 하나 이상의 영속성 단위를 구성하며, 고유한 이름을 가져야 합니다.-->
+    <persistence-unit name="ch02">
+        <!-- JPA는 명세일 뿐이므로 API에 대한 공급자별 PersistenceProvider 구현을 지정해야 합니다.-->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver" /> <!-- JDBC드라이버 -->
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ch02?serverTimezone=UTC" /> <!-- URL -->
+            <property name="hibernate.connection.username" value="root" /> <!-- 사용자명 -->
+            <property name="hibernate.connection.password" value="" /> <!-- 비밀번호 -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/> <!-- 상호작용할 데이터베이스의 방언 지정 -->
+            <property name="hibernate.show_sql" value="true" /> <!-- SQL 코드 표시 -->
+            <property name="hibernate.format_sql" value="true" /> <!-- 하이버네이트가 SQL문을 보기 좋게 표시, 하이버네이트가 실행한이유를 알수있게 주석을 생성 -->
+            <property name="hibernate.hbm2ddl.auto" value="create" /> <!-- 프로그램이 실행될때 마다 데이터베이스가 처음으로 만들어집니다 -->
+        </properties>
+    </persistence-unit>
+</persistence>
+
+
+
+
+
