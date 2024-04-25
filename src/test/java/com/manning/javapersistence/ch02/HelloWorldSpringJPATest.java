@@ -27,10 +27,11 @@ public class HelloWorldSpringJPATest {
         Message message = new Message();
         message.setText("Hello World from Spring Data JPA!");
 
+        //객체를 영속화, save 메서드는 CrudRepository 인퍼페이스로부터 상속되며, 프록시 클래스가 생성될때 스프링 데이터 JPA에서 해당 메서드 본문을 생성합니다.
         messageRepository.save(message);
 
+        //리포지토리에서 메시지를 조회
         List<Message> messages = (List<Message>) messageRepository.findAll();
-
 
         assertAll(
                 () -> assertEquals(1, messages.size()),
