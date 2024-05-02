@@ -33,6 +33,7 @@ public class HelloWorldSpringJPATest {
         //리포지토리에서 메시지를 조회
         List<Message> messages = (List<Message>) messageRepository.findAll();
 
+        //결과값 확인
         assertAll(
                 () -> assertEquals(1, messages.size()),
                 () -> assertEquals("Hello World from Spring Data JPA!", messages.get(0).getText())
